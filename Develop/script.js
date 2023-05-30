@@ -2,24 +2,42 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+//day.js variables
 var currentDay = dayjs().format("dddd");
 var currentDate = dayjs().format(" MMM, D, YYYY");
-var currentHour = dayjs().format("hh");
 
 
 
+//displays current day and date in header with id of current day
 $("#currentDay").text(currentDay + currentDate);
 
 $(function () {
-
   $(".saveBtn").on("click", function () {
     var timeBlockId = $(this).parent().attr("id");
     var userInput = $(this).siblings(".description").val();
 
     localStorage.setItem(timeBlockId, userInput);
-    console.log(localStorage);
+  });
+
+  var currentHour = parseInt(dayjs().format("HH"), 10); //get current hour and turn its value to an interger for conditional statement
+
+  //iterate over the time blocks
+  $(".time-block").each(function () {
+    var timeBlockId = $(this).attr("id");
+    var hour = parseInt(timeBlockId.split("-")[1], 10); //get hour based on time block Id and turn it into an interger
+
+    if (hour < currentHour) {
+      $(this).removeClass("present future").addClass("past");
+    } else if (hour === currentHour) {
+      $(this).removeClass("past future").addClass("present")
+    } else {
+      $(this).removeClass("present past").addClass("future");
+    }
     
-  })
+  });
+
+
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
