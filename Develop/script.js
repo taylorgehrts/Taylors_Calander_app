@@ -41,6 +41,15 @@ $(function () {
     var userInput = localStorage.getItem(timeBlockId);
     $(this).find(".description").val(userInput);
   });
+  
+  //event listner for clear button that will clear all saved events
+  $(function () {
+    $(".deleteBtn").on("click", function (event) {
+      localStorage.clear();
+      event.preventDefault();
+      location.reload();
+});
+    });
 
 
 
