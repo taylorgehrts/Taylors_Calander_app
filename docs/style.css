@@ -20,6 +20,10 @@ textarea {
   border-radius: 15px;
 }
 
+.time-block:hover {
+  filter: brightness(105%);
+}
+
 .row {
   border-top: 1px solid white;
 }
