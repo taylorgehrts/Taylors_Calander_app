@@ -27,7 +27,7 @@ textarea {
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border-top: .5px solid #5a5a5a;
 }
 
 .past {
@@ -69,4 +69,23 @@ textarea {
 .deleteBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+#confirm {
+  opacity: 0; /* Start with opacity 0 */
+}
+/* 
+.slow-fade {
+  animation: fadeInOut 4s;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+} */
+
+.italic-text {
+  font-size: 125%;
+  font-style: italic;
+  text-decoration: underline;
 }

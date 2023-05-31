@@ -10,22 +10,32 @@ var currentDate = dayjs().format(" MMM, D, YYYY");
 
 //displays current day and date in header with id of current day
 $("#currentDay").text(currentDay + currentDate);
-
+//save button event listner and seting of local storage
 $(function () {
   $(".saveBtn").on("click", function () {
     var timeBlockId = $(this).parent().attr("id");
     var userInput = $(this).siblings(".description").val();
 
     localStorage.setItem(timeBlockId, userInput);
+    
+    var confirmationText = "Your event: <span class='italic-text'>" + userInput + "</span> has been added.";
+    $("#confirmText").html(confirmationText);
+
+    $("#confirm").addClass("slow-fade")
+                 .animate({ opacity: 1 }, 2000) // Fade in
+                 .delay(500) // Wait for 0.5 seconds
+                 .animate({ opacity: 0.5 }, 2000); // Fade out
   });
 
-  var currentHour = parseInt(dayjs().format("HH"), 10); //get current hour and turn its value to an interger for conditional statement
+  //get current hour and turn its value to an interger for conditional statement
+  var currentHour = parseInt(dayjs().format("HH"), 10); 
 
   //iterate over the time blocks
   $(".time-block").each(function () {
     var timeBlockId = $(this).attr("id");
     var hour = parseInt(timeBlockId.split("-")[1], 10); //get hour based on time block Id and turn it into an interger
-
+   
+    // conditional statment to change classes in html
     if (hour < currentHour) {
       $(this).removeClass("present future").addClass("past");
     } else if (hour === currentHour) {
