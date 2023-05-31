@@ -59,9 +59,6 @@ textarea {
 }
 
 .deleteBtn {
-  /* border-left: 1px solid black; */
-  /* border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px; */
   background-color: #06aed5;
   color: white;
 }
@@ -72,17 +69,9 @@ textarea {
 }
 
 #confirm {
-  opacity: 0; /* Start with opacity 0 */
+  opacity: 0;
+ 
 }
-/* 
-.slow-fade {
-  animation: fadeInOut 4s;
-}
-
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-} */
 
 .italic-text {
   font-size: 125%;
